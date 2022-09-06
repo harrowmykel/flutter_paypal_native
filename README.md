@@ -14,6 +14,7 @@ Current only available natively on Android. iOS support is in development. :)
 
 ![Screenshot](resources/media/flutter_paypal.gif?raw=true "Screenshot")
 
+
 ## Usage
 Add `flutter_paypal_native` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/platform-integration/platform-channels). If you are targeting Android, make sure to read the *Android Platform Views* section [very important].
 
