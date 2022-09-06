@@ -2,7 +2,7 @@
 
 [![pub package](https://img.shields.io/pub/v/flutter_paypal_native.svg)](https://pub.dev/packages/flutter_paypal_native)
 
-A Flutter plugin that provides a method for PayPal payment natively.
+A Flutter plugin that provides a method for PayPal payment natively  (No Webview).
 
 Current only available natively on Android. iOS support is in development. :)
 
@@ -82,7 +82,7 @@ Your custom return URL:
 - Must match the return URL on your developer dashboard.
 To allow for seamless app switches, make your custom return URL unique. We recommend using reverse domain name notation.
 
-If you're creating a custom return URL because your application ID contains underscores, replace the underscores with periods. For example, change `com.paypal.example_payment_application` to `com.paypal.example.paypal.application` .
+If you're creating a custom return URL because your application ID contains underscores, replace the underscores with periods. For example, change `com.paypal.example_payment_application` to `com.paypal.example.payment.application` .
 
 Enable your app to respond to your custom redirect URL by registering new activities using the `<activity>` tag in the android manifest file.
 
@@ -265,7 +265,18 @@ if you have trouble using this library, read these:
 
 - `com.piccmaq.flutter.paypal.flutter.paypal.example://paypalpay` is not allowed, only `com.piccmaq.flutter.paypal.flutter.paypal.example://paypalpay`
 
+- Make sure your applicationId is registered in the developer dashboard as `applicationID://paypalpay` e.g `com.piccmaq.flutter.paypal.flutter.paypal.example://paypalpay` . after registering it, you may have to wait 3 hours for paypal to review it. You may also have to register your privacy url too.
 
+.
+
+- if you have a problem with the `android:label` after using the package, add these to the application tag of your `Androidmanifest.xml`
+
+```xml
+
+   <application
+        tools:replace="android:label" 
+        xmlns:tools="http://schemas.android.com/tools"
+```
 .
 - The following should be activated in the developer console of Paypal for your account
 
@@ -277,5 +288,6 @@ if you have trouble using this library, read these:
 
 ![Screenshot](https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/screenshots/screenshot_2.png?raw=true "Screenshot")
 ![Screenshot](https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/screenshots/screenshot_1.png?raw=true "Screenshot")
-Fullname & email
+
+- Fullname & email
 ![Screenshot](https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/screenshots/screenshot_3.png?raw=true "Screenshot")
