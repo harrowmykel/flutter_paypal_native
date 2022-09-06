@@ -5,3 +5,6 @@
 
 ## 0.0.2
 * added gifs links to readme
+
+## 0.0.3
+* added gifs size to readme

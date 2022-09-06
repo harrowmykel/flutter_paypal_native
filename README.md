@@ -12,7 +12,8 @@ Current only available natively on Android. iOS support is in development. :)
 | **Support** | SDK 21+        | -    |
 
 
-![Screenshot](https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/flutter_paypal.gif?raw=true "Screenshot")
+
+<img src="https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/flutter_paypal.gif?raw=true" alt="Screenshot" height="400" />
 
 
 ## Usage
