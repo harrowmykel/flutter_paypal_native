@@ -1,0 +1,25 @@
+ {"payToken":" ",
+  "paymentId":" ",
+  "shippingChangeType":" ShippingChangeType",
+  "shippingAddress": {
+    "addressLine1":" ",
+    "addressLine2":" ",
+    "adminArea1":" ",
+    "adminArea2":" ",
+    "postalCode":" ",
+    "countryCode":" "
+ },
+ "shippingOptions": [
+   {
+      
+     "id":" ",
+     "selected":true,
+     "label":" ",
+     "type": "ShippingType",
+     "amount":{
+       "currencyCode":"CurrencyCode",
+       "value":" "
+    }
+ }
+]
+}

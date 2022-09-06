@@ -1,0 +1,68 @@
+
+    "payerId: String?,
+    "orderId: String?,
+    "paymentId: String?,
+    "payer: Buyer? = {
+
+    "userId: String?,
+    "email:{
+      "stringValue":"",
+      "additionalProperties":"additionalProperties"
+    }
+   name:{
+      "fullName":"",
+      "givenName":"",
+      "familyName":"",
+      "additionalProperties":"",
+    },
+    "addresses: []
+    "phones: [
+      {
+        "number":""
+      }
+    ]
+    },
+    "cart: Cart? = {
+
+    "cartId: String? = null,
+    "intent: String? = null,
+    "billingType: "",
+    "paymentId: String? = null,
+    "billingToken: String? = null,
+    "items:[
+{
+  
+    "description: String? = null,
+    "name: String? = null,
+    "unitPrice: Amount? = null,
+    "quantity: Int? = null,
+    "total: Amount? = null,
+    "details: Any? = null,
+}
+    ]
+    "amounts: {
+
+    val handlingFee: "Amount"? = null,
+    val insurance: Amount? = null,
+    val shippingAndHandling: Amount? = null,
+    val shippingDiscount: Amount? = null,
+    val subtotal: Amount? = null,
+    val tax: Amount? = null,
+    val total: Amount? = null,
+    }
+    "description: String? = null,
+    "cancelUrl: {
+"href":""
+    },
+    "returnUrl: ReturnUrl? = null,
+    "total: Amount? = null,
+    "shippingMethods: List<ShippingMethods>? = null,
+    "shippingAddress: CartAddress? = null,
+    "billingAddress: CartAddress? = null,
+    "totalAllowedOverCaptureAmount: Amount? = null
+    },
+    "vaultData: {
+      "approvalSessionID":""
+      "approvalTokenID":""
+    },
+    "billingToken: String? = null,

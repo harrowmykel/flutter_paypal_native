@@ -1,0 +1,107 @@
+{
+    "payerId":"",
+    "orderId":"",
+    "paymentId":"",
+    "payer":{
+       "userId":"",
+       "email":{
+          "Value":"",
+          "additionalProperties":"additionalProperties"
+       },
+       "name":{
+          "fullName":"",
+          "givenName":"",
+          "familyName":"",
+          "additionalProperties":""
+       },
+       "addresses":[
+         {
+            "isPrimary":true,
+            "fullAddress":" String?,",
+            "addressId":" String?,",
+            "line1":" String?,",
+            "line2":" String?,",
+            "city":" String?,",
+            "state":" String?,",
+            "postalCode":" String?,",
+            "country":" String?,",
+            "isSelected": true
+            }
+       ],
+       "phones":[
+          {
+             "number":""
+          }
+       ]
+    },
+    "cart":{
+       "cartId":"",
+       "intent":"",
+       "billingType":"",
+       "paymentId":"",
+       "billingToken":"",
+       "items":[
+          {
+             "description":"",
+             "name":"",
+             "unitPrice":"",
+             "quantity":2,
+             "total":"",
+             "details":""
+          }
+       ],
+       "amounts":{
+          "handlingFee":{
+             "currencyFormat":" String",
+             "currencyFormatSymbolISOCurrency":" String",
+             "currencyCode":" String",
+             "currencySymbol":" String",
+             "currencyValue":" String"
+          },
+          "insurance":"Amount",
+          "shippingAndHandling":"Amount",
+          "shippingDiscount":"Amount",
+          "subtotal":"Amount",
+          "tax":"Amount",
+          "total":"Amount"
+       },
+       "description":"",
+       "cancelUrl":{
+          "href":""
+       },
+       "returnUrl":{
+          "href":""
+       },
+       "total":"Amount",
+       "shippingMethods":[
+          
+         {
+            
+            "id":" ",
+            "selected":true,
+            "label":" ",
+            "type": "ShippingType",
+            "amount":"Amount"
+         }
+       ],
+       "shippingAddress":{
+          "firstName":"",
+          "lastName":"",
+          "line1":"",
+          "line2":"",
+          "city":"",
+          "state":"",
+          "postalCode":"",
+          "country":"",
+          "isFullAddress":true,
+          "isStoreAddress":true
+       },
+       "billingAddress":"CartAddress",
+       "totalAllowedOverCaptureAmount":"Amount"
+    },
+    "vaultData":{
+       "approvalSessionID":"",
+       "approvalTokenID":""
+    },
+    "billingToken":""
+ }

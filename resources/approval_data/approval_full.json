@@ -1,0 +1,183 @@
+{
+    "payerId":"",
+    "orderId":"",
+    "paymentId":"",
+    "payer":{
+       "userId":"",
+       "email":{
+          "Value":""
+       },
+       "name":{
+          "fullName":"",
+          "givenName":"",
+          "familyName":""
+       },
+       "addresses":[
+         {
+            "isPrimary":true,
+            "fullAddress":" String?,",
+            "addressId":" String?,",
+            "line1":" String?,",
+            "line2":" String?,",
+            "city":" String?,",
+            "state":" String?,",
+            "postalCode":" String?,",
+            "country":" String?,",
+            "isSelected": true
+            }
+       ],
+       "phones":[
+          {
+             "number":""
+          }
+       ]
+    },
+    "cart":{
+       "cartId":"",
+       "intent":"",
+       "billingType":"",
+       "paymentId":"",
+       "billingToken":"",
+       "items":[
+          {
+             "description":"",
+             "name":"",
+             "unitPrice":{
+               "currencyFormat":" String",
+               "currencyFormatSymbolISOCurrency":" String",
+               "currencyCode":" String",
+               "currencySymbol":" String",
+               "currencyValue":" String"
+            },
+             "quantity":2,
+             "total":{
+               "currencyFormat":" String",
+               "currencyFormatSymbolISOCurrency":" String",
+               "currencyCode":" String",
+               "currencySymbol":" String",
+               "currencyValue":" String"
+            },
+             "details":""
+          }
+       ],
+       "amounts":{
+          "handlingFee":{
+             "currencyFormat":" String",
+             "currencyFormatSymbolISOCurrency":" String",
+             "currencyCode":" String",
+             "currencySymbol":" String",
+             "currencyValue":" String"
+          },
+          "insurance":{
+             "currencyFormat":" String",
+             "currencyFormatSymbolISOCurrency":" String",
+             "currencyCode":" String",
+             "currencySymbol":" String",
+             "currencyValue":" String"
+          },
+          "shippingAndHandling":{
+             "currencyFormat":" String",
+             "currencyFormatSymbolISOCurrency":" String",
+             "currencyCode":" String",
+             "currencySymbol":" String",
+             "currencyValue":" String"
+          },
+          "shippingDiscount":{
+             "currencyFormat":" String",
+             "currencyFormatSymbolISOCurrency":" String",
+             "currencyCode":" String",
+             "currencySymbol":" String",
+             "currencyValue":" String"
+          },
+          "subtotal":{
+             "currencyFormat":" String",
+             "currencyFormatSymbolISOCurrency":" String",
+             "currencyCode":" String",
+             "currencySymbol":" String",
+             "currencyValue":" String"
+          },
+          "tax":{
+             "currencyFormat":" String",
+             "currencyFormatSymbolISOCurrency":" String",
+             "currencyCode":" String",
+             "currencySymbol":" String",
+             "currencyValue":" String"
+          },
+          "total":{
+             "currencyFormat":" String",
+             "currencyFormatSymbolISOCurrency":" String",
+             "currencyCode":" String",
+             "currencySymbol":" String",
+             "currencyValue":" String"
+          }
+       },
+       "description":"",
+       "cancelUrl":{
+          "href":""
+       },
+       "returnUrl":{
+          "href":""
+       },
+       "total":{
+             "currencyFormat":" String",
+             "currencyFormatSymbolISOCurrency":" String",
+             "currencyCode":" String",
+             "currencySymbol":" String",
+             "currencyValue":" String"
+          },
+       "shippingMethods":[
+          
+         {
+            
+            "id":" ",
+            "selected":true,
+            "label":" ",
+            "type": "ShippingType",
+            "amount":{
+                "currencyFormat":" String",
+                "currencyFormatSymbolISOCurrency":" String",
+                "currencyCode":" String",
+                "currencySymbol":" String",
+                "currencyValue":" String"
+             
+         }
+         }
+       ],
+       "shippingAddress":{
+          "firstName":"",
+          "lastName":"",
+          "line1":"",
+          "line2":"",
+          "city":"",
+          "state":"",
+          "postalCode":"",
+          "country":"",
+          "isFullAddress":true,
+          "isStoreAddress":true
+       },
+       "billingAddress":{
+         "firstName":"",
+         "lastName":"",
+         "line1":"",
+         "line2":"",
+         "city":"",
+         "state":"",
+         "postalCode":"",
+         "country":"",
+         "isFullAddress":true,
+         "isStoreAddress":true
+      },
+       "totalAllowedOverCaptureAmount":{
+             "currencyFormat":" String",
+             "currencyFormatSymbolISOCurrency":" String",
+             "currencyCode":" String",
+             "currencySymbol":" String",
+             "currencyValue":" String"
+          }
+    },
+    "vaultData":{
+       "approvalSessionID":"",
+       "approvalTokenID":""
+    },
+    "billingToken":""
+ }
