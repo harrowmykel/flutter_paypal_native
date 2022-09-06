@@ -8,3 +8,6 @@
 
 ## 0.0.3
 * added gifs size to readme
+
+## 0.0.4
+* added more documentation to readme
