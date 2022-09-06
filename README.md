@@ -12,7 +12,7 @@ Current only available natively on Android. iOS support is in development. :)
 | **Support** | SDK 21+        | -    |
 
 
-![Screenshot](resources/media/flutter_paypal.gif?raw=true "Screenshot")
+![Screenshot](https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/flutter_paypal.gif?raw=true "Screenshot")
 
 
 ## Usage
@@ -274,7 +274,7 @@ if you have trouble using this library, read these:
 * Email and Fullname
 * Vault
 
-![Screenshot](resources/media/screenshots/screenshot_2.png?raw=true "Screenshot")
-![Screenshot](resources/media/screenshots/screenshot_1.png?raw=true "Screenshot")
+![Screenshot](https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/screenshots/screenshot_2.png?raw=true "Screenshot")
+![Screenshot](https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/screenshots/screenshot_1.png?raw=true "Screenshot")
 Fullname & email
-![Screenshot](resources/media/screenshots/screenshot_3.png?raw=true "Screenshot")
+![Screenshot](https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/screenshots/screenshot_3.png?raw=true "Screenshot")
