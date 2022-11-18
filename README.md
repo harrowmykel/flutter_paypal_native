@@ -15,7 +15,7 @@ Now supports Android and iOS 🌟⚡. :)
 
 <img src="https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/flutter_paypal.gif?raw=true" alt="Screenshot" height="400" />
 
-<img src="https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/flutter_paypal_ios.gif?raw=true" alt="Screenshot" height="400" />
+<img src="https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/flutter_paypal_ios.gif?raw=true" alt="Screenshot iOS" height="400" />
 
 ## Usage
 Add `flutter_paypal_native` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/platform-integration/platform-channels). If you are targeting Android, make sure to read the *Android Platform Views* section [very important].
@@ -264,11 +264,9 @@ class _MyAppState extends State<MyApp> {
 #### Troubleshooting Tips
 if you have trouble using this library, read these:
 
-- `com.piccmaq.flutter.paypal.flutter.paypal.example://paypalpay` is not allowed, only `com.piccmaq.flutter.paypal.flutter.paypal.example://paypalpay`
-
 - Make sure your applicationId is registered in the developer dashboard as `applicationID://paypalpay` e.g `com.piccmaq.flutter.paypal.flutter.paypal.example://paypalpay` . after registering it, you may have to wait 3 hours for paypal to review it. You may also have to register your privacy url too.
-
-.
+- 
+- underscore is not allowed e.g `com.piccmaq.flutter.paypal.flutter_paypal_example://paypalpay` is not allowed, only `com.piccmaq.flutter.paypal.flutter.paypal.example://paypalpay`
 
 - if you have a problem with the `android:label` after using the package, add these to the application tag of your `Androidmanifest.xml`
 

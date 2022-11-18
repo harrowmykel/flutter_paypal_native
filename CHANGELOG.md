@@ -11,3 +11,6 @@
 
 ## 0.0.4
 * added more documentation to readme
+  
+## 0.0.5
+* now supports iOS
