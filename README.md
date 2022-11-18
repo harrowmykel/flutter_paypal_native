@@ -265,7 +265,7 @@ class _MyAppState extends State<MyApp> {
 if you have trouble using this library, read these:
 
 - Make sure your applicationId is registered in the developer dashboard as `applicationID://paypalpay` e.g `com.piccmaq.flutter.paypal.flutter.paypal.example://paypalpay` . after registering it, you may have to wait 3 hours for paypal to review it. You may also have to register your privacy url too.
-- 
+
 - underscore is not allowed e.g `com.piccmaq.flutter.paypal.flutter_paypal_example://paypalpay` is not allowed, only `com.piccmaq.flutter.paypal.flutter.paypal.example://paypalpay`
 
 - if you have a problem with the `android:label` after using the package, add these to the application tag of your `Androidmanifest.xml`
