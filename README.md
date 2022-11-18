@@ -284,9 +284,8 @@ if you have trouble using this library, read these:
 * native checkout sdk
 * Email and Fullname
 * Vault
+* Fullname & email
 
 ![Screenshot](https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/screenshots/screenshot_2.png?raw=true "Screenshot")
 ![Screenshot](https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/screenshots/screenshot_1.png?raw=true "Screenshot")
-
-- Fullname & email
 ![Screenshot](https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/screenshots/screenshot_3.png?raw=true "Screenshot")
