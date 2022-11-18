@@ -15,7 +15,6 @@ import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 
-
 import com.paypal.checkout.PayPalCheckout;
 import com.paypal.checkout.approve.Approval;
 import com.paypal.checkout.cancel.OnCancel;
@@ -50,164 +49,158 @@ import java.util.Map;
 
 /** FlutterPaypalNativePlugin */
 public class FlutterPaypalNativePlugin extends FlutterRegistrarResponder
-implements FlutterPlugin, MethodCallHandler, ActivityAware {
-boolean initialisedPaypalConfig = false;
+        implements FlutterPlugin, MethodCallHandler, ActivityAware {
+    boolean initialisedPaypalConfig = false;
 
-private Application application;
-private CheckoutConfigStore checkoutConfigStore;
-private PayPalCallBackHelper payPalCallBackHelper;
+    private Application application;
+    private CheckoutConfigStore checkoutConfigStore;
+    private PayPalCallBackHelper payPalCallBackHelper;
 
-@Override
-public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
-channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "flutter_paypal");
-channel.setMethodCallHandler(this);
-}
+    @Override
+    public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
+        channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "flutter_paypal_native");
+        channel.setMethodCallHandler(this);
+    }
 
-@Override
-public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
-if (call.method.equals("getPlatformVersion")) {
-    result.success("Android " + android.os.Build.VERSION.RELEASE);
-    return;
-} else if (call.method.equals("FlutterPaypal#initiate")) {
-    initiatePackage(call, result);
-    return;
-} else if (call.method.equals("FlutterPaypal#makeOrder")) {
-    makeOrder(call, result);
-    return;
-}
-result.notImplemented();
-}
-
-@Override
-public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
-channel.setMethodCallHandler(null);
-}
-
-@Override
-public void onAttachedToActivity(@NonNull ActivityPluginBinding binding) {
-application = binding.getActivity().getApplication();
-initialisePaypalConfig();
-}
-
-@Override
-public void onDetachedFromActivity() {
-application = null;
-}
-
-@Override
-public void onReattachedToActivityForConfigChanges(@NonNull ActivityPluginBinding binding) {
-}
-
-@Override
-public void onDetachedFromActivityForConfigChanges() {
-}
-
-private void initiatePackage(@NonNull MethodCall call, @NonNull Result result) {
-String returnUrl = call.argument("returnUrl");
-String clientId = call.argument("clientId");
-String payPalEnvironmentStr = call.argument("payPalEnvironment");
-String currencyStr = call.argument("currency");
-String userActionStr = call.argument("userAction");
-
-CurrencyCode currency = (new CurrencyCodeHelper()).getEnumFromString(currencyStr);
-UserAction userAction = (new UserActionHelper()).getEnumFromString(userActionStr);
-Environment payPalEnvironment = (new EnvironmentHelper()).getEnumFromString(payPalEnvironmentStr);
-
-//store in checkoutconfigstore because application is sometimes null
-checkoutConfigStore = new CheckoutConfigStore(
-        clientId,
-        payPalEnvironment,
-        returnUrl,
-        currency,
-        userAction
-);
-result.success("completed");
-}
-
-void initialisePaypalConfig() {
-if (application == null) return;
-if (checkoutConfigStore == null) return;
-
-PayPalCheckout.setConfig(new CheckoutConfig(
-        application,
-        checkoutConfigStore.clientId,
-        checkoutConfigStore.payPalEnvironment,
-        checkoutConfigStore.returnUrl,
-        checkoutConfigStore.currency,
-        checkoutConfigStore.userAction
-));
-payPalCallBackHelper = new PayPalCallBackHelper(this);
-PayPalCheckout.registerCallbacks(
-        approval -> {
-            // Order successfully captured
-            payPalCallBackHelper.onPayPalApprove(approval);
-        },
-        (shippingData, shippingAction) -> {
-            //called when shippinginfo changes
-            payPalCallBackHelper.onPayPalShippingChange(shippingData, shippingAction);
-        },
-        () -> {
-            // Optional callback for when a buyer cancels the paysheet
-            payPalCallBackHelper.onPayPalCancel();
-        },
-        errorInfo -> {
-            // Optional error callback
-            payPalCallBackHelper.onPayPalError(errorInfo);
+    @Override
+    public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
+        if (call.method.equals("getPlatformVersion")) {
+            result.success("Android " + android.os.Build.VERSION.RELEASE);
+            return;
+        } else if (call.method.equals("FlutterPaypal#initiate")) {
+            initiatePackage(call, result);
+            return;
+        } else if (call.method.equals("FlutterPaypal#makeOrder")) {
+            makeOrder(call, result);
+            return;
         }
-);
-initialisedPaypalConfig = true;
-}
+        result.notImplemented();
+    }
 
-private void makeOrder(@NonNull MethodCall call, @NonNull Result result) {
-if (!initialisedPaypalConfig) {
-    initialisePaypalConfig();
-}
+    @Override
+    public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
+        channel.setMethodCallHandler(null);
+    }
 
-String purchaseUnitsStr = call.argument("purchaseUnits");
-String userActionStr = call.argument("userAction");
-UserAction userAction = (new UserActionHelper()).getEnumFromString(userActionStr);
+    @Override
+    public void onAttachedToActivity(@NonNull ActivityPluginBinding binding) {
+        application = binding.getActivity().getApplication();
+        initialisePaypalConfig();
+    }
 
-List<PurchaseUnitC> purchaseUnitsC = (new PurchaseUnitHelper())
-       .convertJsonToArrayList(purchaseUnitsStr);
-CurrencyCodeHelper helper = (new CurrencyCodeHelper());
+    @Override
+    public void onDetachedFromActivity() {
+        application = null;
+    }
 
-try {
-    PayPalCheckout.startCheckout(
-            createOrderActions -> {
-                ArrayList<PurchaseUnit> purchaseUnits = new ArrayList<>();
-                for (PurchaseUnitC purchaseUnit:purchaseUnitsC) {
-                    CurrencyCode currency = helper.getEnumFromString(
-                            purchaseUnit.getCurrency()
-                    );
-                    purchaseUnits.add(
-                            new PurchaseUnit.Builder()
-                                    .amount(
-                                            new Amount.Builder()
-                                                    .currencyCode(currency)
-                                                    .value(purchaseUnit.getPrice())
-                                                    .build()
-                                    )
-                                    .referenceId(purchaseUnit.getReferenceID())
-                                    .build()
-                    );
-                }
-                Order order = new Order(
-                        OrderIntent.CAPTURE,
-                        new AppContext.Builder()
-                                .userAction(userAction)
-                                .build(),
-                        purchaseUnits
-                );
-                createOrderActions.create(order, orderId -> {
+    @Override
+    public void onReattachedToActivityForConfigChanges(@NonNull ActivityPluginBinding binding) {
+    }
+
+    @Override
+    public void onDetachedFromActivityForConfigChanges() {
+    }
+
+    private void initiatePackage(@NonNull MethodCall call, @NonNull Result result) {
+        String returnUrl = call.argument("returnUrl");
+        String clientId = call.argument("clientId");
+        String payPalEnvironmentStr = call.argument("payPalEnvironment");
+        String currencyStr = call.argument("currency");
+        String userActionStr = call.argument("userAction");
+
+        CurrencyCode currency = (new CurrencyCodeHelper()).getEnumFromString(currencyStr);
+        UserAction userAction = (new UserActionHelper()).getEnumFromString(userActionStr);
+        Environment payPalEnvironment = (new EnvironmentHelper()).getEnumFromString(payPalEnvironmentStr);
+
+        // store in checkoutconfigstore because application is sometimes null
+        checkoutConfigStore = new CheckoutConfigStore(
+                clientId,
+                payPalEnvironment,
+                returnUrl,
+                currency,
+                userAction);
+        result.success("completed");
+    }
+
+    void initialisePaypalConfig() {
+        if (application == null)
+            return;
+        if (checkoutConfigStore == null)
+            return;
+
+        PayPalCheckout.setConfig(new CheckoutConfig(
+                application,
+                checkoutConfigStore.clientId,
+                checkoutConfigStore.payPalEnvironment,
+                checkoutConfigStore.returnUrl,
+                checkoutConfigStore.currency,
+                checkoutConfigStore.userAction));
+        payPalCallBackHelper = new PayPalCallBackHelper(this);
+        PayPalCheckout.registerCallbacks(
+                approval -> {
+                    // Order successfully captured
+                    payPalCallBackHelper.onPayPalApprove(approval);
+                },
+                (shippingData, shippingAction) -> {
+                    // called when shippinginfo changes
+                    payPalCallBackHelper.onPayPalShippingChange(shippingData, shippingAction);
+                },
+                () -> {
+                    // Optional callback for when a buyer cancels the paysheet
+                    payPalCallBackHelper.onPayPalCancel();
+                },
+                errorInfo -> {
+                    // Optional error callback
+                    payPalCallBackHelper.onPayPalError(errorInfo);
                 });
-            }
-    );
-    result.success("completed");
-}catch(Exception e){
-    Toast.makeText(application, "error occured while getting order", Toast.LENGTH_SHORT).show();
+        initialisedPaypalConfig = true;
+    }
 
-    result.error("completed", e.getMessage(),e.getMessage());
-}
-}
+    private void makeOrder(@NonNull MethodCall call, @NonNull Result result) {
+        if (!initialisedPaypalConfig) {
+            initialisePaypalConfig();
+        }
+
+        String purchaseUnitsStr = call.argument("purchaseUnits");
+        String userActionStr = call.argument("userAction");
+        UserAction userAction = (new UserActionHelper()).getEnumFromString(userActionStr);
+
+        List<PurchaseUnitC> purchaseUnitsC = (new PurchaseUnitHelper())
+                .convertJsonToArrayList(purchaseUnitsStr);
+        CurrencyCodeHelper helper = (new CurrencyCodeHelper());
+
+        try {
+            PayPalCheckout.startCheckout(
+                    createOrderActions -> {
+                        ArrayList<PurchaseUnit> purchaseUnits = new ArrayList<>();
+                        for (PurchaseUnitC purchaseUnit : purchaseUnitsC) {
+                            CurrencyCode currency = helper.getEnumFromString(
+                                    purchaseUnit.getCurrency());
+                            purchaseUnits.add(
+                                    new PurchaseUnit.Builder()
+                                            .amount(
+                                                    new Amount.Builder()
+                                                            .currencyCode(currency)
+                                                            .value(purchaseUnit.getPrice())
+                                                            .build())
+                                            .referenceId(purchaseUnit.getReferenceID())
+                                            .build());
+                        }
+                        Order order = new Order(
+                                OrderIntent.CAPTURE,
+                                new AppContext.Builder()
+                                        .userAction(userAction)
+                                        .build(),
+                                purchaseUnits);
+                        createOrderActions.create(order, orderId -> {
+                        });
+                    });
+            result.success("completed");
+        } catch (Exception e) {
+            Toast.makeText(application, "error occured while getting order", Toast.LENGTH_SHORT).show();
+
+            result.error("completed", e.getMessage(), e.getMessage());
+        }
+    }
 
 }

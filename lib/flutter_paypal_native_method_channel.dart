@@ -7,7 +7,7 @@ import 'flutter_paypal_native_platform_interface.dart';
 class MethodChannelFlutterPaypalNative extends FlutterPaypalNativePlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
-  final methodChannel = const MethodChannel('flutter_paypal');
+  final methodChannel = const MethodChannel('flutter_paypal_native');
 
   @override
   Future<String?> getPlatformVersion() async {

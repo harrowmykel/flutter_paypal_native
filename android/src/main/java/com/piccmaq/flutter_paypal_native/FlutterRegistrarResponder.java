@@ -1,4 +1,5 @@
 package com.piccmaq.flutter_paypal_native;
+
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -11,18 +12,21 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
 
 public abstract class FlutterRegistrarResponder {
-    Context context;/// The MethodChannel that will the communication between Flutter and native Android
+    Context context;/// The MethodChannel that will the communication between Flutter and native
+                    /// Android
     ///
-    /// This local reference serves to register the plugin with the Flutter Engine and unregister it
+    /// This local reference serves to register the plugin with the Flutter Engine
+    /// and unregister it
     /// when the Flutter Engine is detached from the Activity
     MethodChannel channel;
     BinaryMessenger messenger;
 
-    public static String LOG_TAG ="etailersuite";
+    public static String LOG_TAG = "flutter_paypal_native";
 
     /**
      * MethodChannel class is home to success() method used by Result class
-     * It has the @UiThread annotation and must be run on UI thread, otherwise a RuntimeException will be thrown
+     * It has the @UiThread annotation and must be run on UI thread, otherwise a
+     * RuntimeException will be thrown
      * This will communicate success back to Dart
      */
     void replySuccess(final MethodChannel.Result reply, final Object response) {
@@ -36,11 +40,12 @@ public abstract class FlutterRegistrarResponder {
 
     /**
      * MethodChannel class is home to error() method used by Result class
-     * It has the @UiThread annotation and must be run on UI thread, otherwise a RuntimeException will be thrown
+     * It has the @UiThread annotation and must be run on UI thread, otherwise a
+     * RuntimeException will be thrown
      * This will communicate error back to Dart
      */
     void replyError(final MethodChannel.Result reply, final String message, final Object response) {
-        final String tag="flutter_paypal";
+        final String tag = "flutter_paypal_native";
         runOnMainThread(new Runnable() {
             @Override
             public void run() {
@@ -51,7 +56,8 @@ public abstract class FlutterRegistrarResponder {
 
     /**
      * MethodChannel class is home to notImplemented() method used by Result class
-     * It has the @UiThread annotation and must be run on UI thread, otherwise a RuntimeException will be thrown
+     * It has the @UiThread annotation and must be run on UI thread, otherwise a
+     * RuntimeException will be thrown
      * This will communicate not implemented back to Dart
      */
     void replyNotImplemented(final MethodChannel.Result reply) {
@@ -82,8 +88,8 @@ public abstract class FlutterRegistrarResponder {
         });
     }
 
-    public void log(final String level, final String message){
-//        level = error, debug, verbose;
+    public void log(final String level, final String message) {
+        // level = error, debug, verbose;
         Log.e(LOG_TAG, message);
     }
 }
