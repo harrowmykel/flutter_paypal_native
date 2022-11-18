@@ -4,17 +4,18 @@
 
 A Flutter plugin that provides a method for PayPal payment natively  (No Webview).
 
-Current only available natively on Android. iOS support is in development. :)
+Now supports Android and iOS 🌟⚡. :)
 
 
-|             | Android        | iOS  |
-|-------------|----------------|------|
-| **Support** | SDK 21+        | -    |
+|             | Android | iOS |
+| ----------- | ------- | --- |
+| **Support** | SDK 21+ | all |
 
 
 
 <img src="https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/flutter_paypal.gif?raw=true" alt="Screenshot" height="400" />
 
+<img src="https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/flutter_paypal_ios.gif?raw=true" alt="Screenshot" height="400" />
 
 ## Usage
 Add `flutter_paypal_native` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/platform-integration/platform-channels). If you are targeting Android, make sure to read the *Android Platform Views* section [very important].
@@ -129,13 +130,13 @@ For both activities, replace `YOUR-CUSTOM-SCHEME` with the custom return URL tha
  import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_paypal/flutter_paypal.dart';
-import 'package:flutter_paypal/str_helper.dart';
-import 'package:flutter_paypal/models/environment.dart';
-import 'package:flutter_paypal/models/currency_code.dart';
-import 'package:flutter_paypal/models/purchase_unit.dart';
-import 'package:flutter_paypal/models/user_action.dart';
-import 'package:flutter_paypal/models/order_callback.dart';
+import 'package:flutter_paypal_native/flutter_paypal.dart';
+import 'package:flutter_paypal_native/str_helper.dart';
+import 'package:flutter_paypal_native/models/environment.dart';
+import 'package:flutter_paypal_native/models/currency_code.dart';
+import 'package:flutter_paypal_native/models/purchase_unit.dart';
+import 'package:flutter_paypal_native/models/user_action.dart';
+import 'package:flutter_paypal_native/models/order_callback.dart';
 
 void main() async {
   runApp(const MyApp());
