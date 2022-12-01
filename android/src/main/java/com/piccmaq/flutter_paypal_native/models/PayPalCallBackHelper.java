@@ -10,7 +10,7 @@ import com.paypal.checkout.error.CorrelationIds;
 import com.paypal.checkout.error.ErrorInfo;
 import com.paypal.checkout.shipping.ShippingChangeActions;
 import com.paypal.checkout.shipping.ShippingChangeData;
-import com.piccmaq.flutter_paypal_native.FlutterPaypalPlugin;
+import com.piccmaq.flutter_paypal_native.FlutterPaypalNativePlugin;
 import com.piccmaq.flutter_paypal_native.FlutterRegistrarResponder;
 import com.piccmaq.flutter_paypal_native.models.shippingdata.ShippingChangeDataHelper;
 
@@ -19,9 +19,9 @@ import org.json.JSONException;
 import java.util.HashMap;
 
 public class PayPalCallBackHelper {
-    FlutterPaypalPlugin flutterPaypalPlugin;
+    FlutterPaypalNativePlugin flutterPaypalPlugin;
 
-    public PayPalCallBackHelper(FlutterPaypalPlugin flutterPaypalPlugin) {
+    public PayPalCallBackHelper(FlutterPaypalNativePlugin flutterPaypalPlugin) {
         this.flutterPaypalPlugin = flutterPaypalPlugin;
     }
 
