@@ -14,3 +14,6 @@
   
 ## 0.0.5
 * now supports iOS
+
+## 0.0.6
+* fixed android class
