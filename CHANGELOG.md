@@ -1,7 +1,5 @@
 ## 0.0.1
-
 * TODO: Describe initial release.
-
 
 ## 0.0.2
 * added gifs links to readme
@@ -17,3 +15,6 @@
 
 ## 0.0.6
 * fixed android class
+
+## 0.0.7
+* updated paypal sdk library
