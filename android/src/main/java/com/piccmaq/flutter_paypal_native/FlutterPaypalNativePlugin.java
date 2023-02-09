@@ -132,9 +132,9 @@ public class FlutterPaypalNativePlugin extends FlutterRegistrarResponder
                 application,
                 checkoutConfigStore.clientId,
                 checkoutConfigStore.payPalEnvironment,
-                checkoutConfigStore.returnUrl,
                 checkoutConfigStore.currency,
-                checkoutConfigStore.userAction));
+                checkoutConfigStore.userAction,
+                checkoutConfigStore.returnUrl));
         payPalCallBackHelper = new PayPalCallBackHelper(this);
         PayPalCheckout.registerCallbacks(
                 approval -> {

@@ -1,6 +1,6 @@
 name: flutter_paypal_native
 description: A native implementation for Paypal with flutter.
-version: 0.0.6
+version: 0.0.7
 homepage: https://github.com/harrowmykel/flutter_paypal_native
 
 environment:
