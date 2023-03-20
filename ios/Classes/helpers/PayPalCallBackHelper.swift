@@ -53,8 +53,8 @@ class PayPalCallBackHelper {
                 "total": cart.total.toDictionary(),
                 "shippingAddress": cart.shippingAddress?.toDictionary(),
                 "billingAddress": cart.billingAddress?.toDictionary(),
-                "totalAllowedOverCaptureAmount": cart.totalAllowedOverCaptureAmount.toDictionary(),
-                "items": cart.items.map({ (item) in
+                "totalAllowedOverCaptureAmount": cart.totalAllowedOverCaptureAmount.toDictionary() as [String: Any?],
+                "items": cart.items.map({ (item) -> [String: Any?] in
                     var cartItemMap: [String: Any?] = [
                         "name": item.name,
                         "description": item.itemDescription,
