@@ -2,7 +2,7 @@
 
 [![pub package](https://img.shields.io/pub/v/flutter_paypal_native.svg)](https://pub.dev/packages/flutter_paypal_native)
 
-A Flutter plugin that provides a method for PayPal payment natively  (No Webview).
+A Flutter plugin that provides a method for PayPal payment natively  (No Webview). It uses [Paypal Checkout Native Mobile SDK](https://developer.paypal.com/limited-release/paypal-mobile-checkout/android/)
 
 Now supports Android and iOS 🌟⚡. :)
 
