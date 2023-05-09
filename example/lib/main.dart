@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
       //your app id !!! No Underscore!!! see readme.md for help
       returnUrl: "com.piccmaq.flutter.paypal.native.example://paypalpay",
       //client id from developer dashboard
-      clientID: "AZsCX8U9TG3Ah....",
+      clientID: "AZsCX.....",
       //sandbox, staging, live etc
       payPalEnvironment: FPayPalEnvironment.sandbox,
       //what currency do you plan to use? default is US dollars
