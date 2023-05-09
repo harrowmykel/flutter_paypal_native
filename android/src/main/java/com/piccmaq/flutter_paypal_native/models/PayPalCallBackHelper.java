@@ -5,13 +5,10 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.paypal.checkout.approve.Approval;
-import com.paypal.checkout.approve.ApprovalData;
-import com.paypal.checkout.error.CorrelationIds;
 import com.paypal.checkout.error.ErrorInfo;
 import com.paypal.checkout.shipping.ShippingChangeActions;
 import com.paypal.checkout.shipping.ShippingChangeData;
 import com.piccmaq.flutter_paypal_native.FlutterPaypalNativePlugin;
-import com.piccmaq.flutter_paypal_native.FlutterRegistrarResponder;
 import com.piccmaq.flutter_paypal_native.models.shippingdata.ShippingChangeDataHelper;
 
 import org.json.JSONException;
@@ -70,15 +67,14 @@ public class PayPalCallBackHelper {
         data.put("error", errorInfo.getError().getMessage());
         data.put("nativeSdkVersion", errorInfo.getNativeSdkVersion());
 
-
-        CorrelationIds correlationIds = errorInfo.getCorrelationIds();
-        data.put("eligibilityDebugID", correlationIds.getEligibilityDebugID());
-        data.put("fundingEligibilityDebugID", correlationIds.getFundingEligibilityDebugID());
-        data.put("updateClientConfigDebugID", correlationIds.getUpdateClientConfigDebugID());
-        data.put("lsatUpgradeDebugID", correlationIds.getLsatUpgradeDebugID());
-        data.put("fetchPayloadDebugID", correlationIds.getFetchPayloadDebugID());
-        data.put("currencyConversionDebugID", correlationIds.getCurrencyConversionDebugID());
-        data.put("finishCheckoutDebugID", correlationIds.getFinishCheckoutDebugID());
+//        HashMap<String, String> correlationIds = (HashMap<String, String>) errorInfo.getCorrelationIds();
+//        data.put("eligibilityDebugID", correlationIds.getEligibilityDebugID());
+//        data.put("fundingEligibilityDebugID", correlationIds.getFundingEligibilityDebugID());
+//        data.put("updateClientConfigDebugID", correlationIds.getUpdateClientConfigDebugID());
+//        data.put("lsatUpgradeDebugID", correlationIds.getLsatUpgradeDebugID());
+//        data.put("fetchPayloadDebugID", correlationIds.getFetchPayloadDebugID());
+//        data.put("currencyConversionDebugID", correlationIds.getCurrencyConversionDebugID());
+//        data.put("finishCheckoutDebugID", correlationIds.getFinishCheckoutDebugID());
 
         flutterPaypalPlugin.invokeMethodOnUiThread("FlutterPaypal#onError", data);
     }

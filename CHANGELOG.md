@@ -1,3 +1,6 @@
+## 1.0.0
+* removed correlations id
+
 ## 0.0.8
 * fixed unable to infer error on ios | thanks to @Rishan99 for fixing and @jpainam for reporting
 

@@ -21,9 +21,9 @@ public class ShippingChangeDataHelper {
     @SerializedName("shippingChangeType")
     @Expose
     private String shippingChangeType;
-    @SerializedName("shippingAddress")
+    @SerializedName("shippingChangeAddress")
     @Expose
-    private ShippingAddress shippingAddress;
+    private ShippingChangeAddress shippingChangeAddress;
     @SerializedName("shippingOptions")
     @Expose
     private List<ShippingOption> shippingOptions = null;
@@ -40,8 +40,8 @@ public class ShippingChangeDataHelper {
 
         val.setPaymentId(data.getPaymentId());
         val.setPayToken(data.getPayToken());
-        val.setShippingAddress(
-                ShippingAddress.fromShippingAdress(
+        val.setShippingChangeAddress(
+                ShippingChangeAddress.fromShippingChangeAddress(
                         data.getShippingAddress()
                 )
         );
@@ -87,12 +87,12 @@ public class ShippingChangeDataHelper {
         this.shippingChangeType = shippingChangeType;
     }
 
-    public ShippingAddress getShippingAddress() {
-        return shippingAddress;
+    public ShippingChangeAddress getShippingChangeAddress() {
+        return shippingChangeAddress;
     }
 
-    public void setShippingAddress(ShippingAddress shippingAddress) {
-        this.shippingAddress = shippingAddress;
+    public void setShippingChangeAddress(ShippingChangeAddress shippingChangeAddress) {
+        this.shippingChangeAddress = shippingChangeAddress;
     }
 
     public List<ShippingOption> getShippingOptions() {

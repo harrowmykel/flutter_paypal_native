@@ -5,13 +5,13 @@ class FPayPalErrorInfo extends MapHelper {
   String orderId = "";
   String error = "";
   String nativeSdkVersion = "";
-  String eligibilityDebugID = "";
-  String fundingEligibilityDebugID = "";
-  String updateClientConfigDebugID = "";
-  String lsatUpgradeDebugID = "";
-  String fetchPayloadDebugID = "";
-  String currencyConversionDebugID = "";
-  String finishCheckoutDebugID = "";
+  // String eligibilityDebugID = "";
+  // String fundingEligibilityDebugID = "";
+  // String updateClientConfigDebugID = "";
+  // String lsatUpgradeDebugID = "";
+  // String fetchPayloadDebugID = "";
+  // String currencyConversionDebugID = "";
+  // String finishCheckoutDebugID = "";
 
   FPayPalErrorInfo fromMap(Map<String, dynamic> data) {
     setMap(data);
@@ -21,13 +21,13 @@ class FPayPalErrorInfo extends MapHelper {
     error = getString("error");
 
     nativeSdkVersion = getString("nativeSdkVersion");
-    eligibilityDebugID = getString("eligibilityDebugID");
-    fundingEligibilityDebugID = getString("fundingEligibilityDebugID");
-    updateClientConfigDebugID = getString("updateClientConfigDebugID");
-    lsatUpgradeDebugID = getString("lsatUpgradeDebugID");
-    fetchPayloadDebugID = getString("fetchPayloadDebugID");
-    currencyConversionDebugID = getString("currencyConversionDebugID");
-    finishCheckoutDebugID = getString("finishCheckoutDebugID");
+    // eligibilityDebugID = getString("eligibilityDebugID");
+    // fundingEligibilityDebugID = getString("fundingEligibilityDebugID");
+    // updateClientConfigDebugID = getString("updateClientConfigDebugID");
+    // lsatUpgradeDebugID = getString("lsatUpgradeDebugID");
+    // fetchPayloadDebugID = getString("fetchPayloadDebugID");
+    // currencyConversionDebugID = getString("currencyConversionDebugID");
+    // finishCheckoutDebugID = getString("finishCheckoutDebugID");
 
     return this;
   }

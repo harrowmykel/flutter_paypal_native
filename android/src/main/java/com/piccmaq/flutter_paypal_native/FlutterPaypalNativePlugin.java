@@ -1,12 +1,11 @@
 package com.piccmaq.flutter_paypal_native;
 
 import android.app.Application;
-import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import io.flutter.Log;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -16,24 +15,15 @@ import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 
 import com.paypal.checkout.PayPalCheckout;
-import com.paypal.checkout.approve.Approval;
-import com.paypal.checkout.cancel.OnCancel;
 import com.paypal.checkout.createorder.CurrencyCode;
 import com.paypal.checkout.createorder.OrderIntent;
 import com.paypal.checkout.createorder.UserAction;
-import com.paypal.checkout.error.CorrelationIds;
-import com.paypal.checkout.error.ErrorInfo;
-import com.paypal.checkout.error.OnError;
 import com.paypal.checkout.order.Amount;
 import com.paypal.checkout.order.AppContext;
-import com.paypal.checkout.order.Order;
+import com.paypal.checkout.order.OrderRequest;
 import com.paypal.checkout.order.PurchaseUnit;
-import com.paypal.checkout.PayPalCheckout;
 import com.paypal.checkout.config.CheckoutConfig;
 import com.paypal.checkout.config.Environment;
-
-import com.paypal.checkout.shipping.ShippingChangeActions;
-import com.paypal.checkout.shipping.ShippingChangeData;
 import com.piccmaq.flutter_paypal_native.models.CheckoutConfigStore;
 import com.piccmaq.flutter_paypal_native.models.CurrencyCodeHelper;
 import com.piccmaq.flutter_paypal_native.models.EnvironmentHelper;
@@ -43,9 +33,7 @@ import com.piccmaq.flutter_paypal_native.models.PurchaseUnitHelper;
 import com.piccmaq.flutter_paypal_native.models.UserActionHelper;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /** FlutterPaypalNativePlugin */
 public class FlutterPaypalNativePlugin extends FlutterRegistrarResponder
@@ -186,7 +174,7 @@ public class FlutterPaypalNativePlugin extends FlutterRegistrarResponder
                                             .referenceId(purchaseUnit.getReferenceID())
                                             .build());
                         }
-                        Order order = new Order(
+                        OrderRequest order = new OrderRequest(
                                 OrderIntent.CAPTURE,
                                 new AppContext.Builder()
                                         .userAction(userAction)
@@ -197,8 +185,7 @@ public class FlutterPaypalNativePlugin extends FlutterRegistrarResponder
                     });
             result.success("completed");
         } catch (Exception e) {
-            Toast.makeText(application, "error occured while getting order", Toast.LENGTH_SHORT).show();
-
+             Log.e("flutter-paypal-native", "error occured while getting order");
             result.error("completed", e.getMessage(), e.getMessage());
         }
     }
