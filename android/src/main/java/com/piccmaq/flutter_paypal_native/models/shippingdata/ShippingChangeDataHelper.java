@@ -41,7 +41,7 @@ public class ShippingChangeDataHelper {
         val.setPaymentId(data.getPaymentId());
         val.setPayToken(data.getPayToken());
         val.setShippingAddress(
-                ShippingAddress.fromShippingAdress(
+                ShippingAddress.fromShippingAddress(
                         data.getShippingAddress()
                 )
         );

@@ -74,7 +74,7 @@ public class ShippingAddress {
     }
 
 
-    public static ShippingAddress fromShippingAdress(Address address){
+    public static ShippingAddress fromShippingAddress(Address address){
         ShippingAddress val = new ShippingAddress();
         val.setAddressLine1(address.getAddressLine1());
         val.setAddressLine2(address.getAddressLine2());
