@@ -1,12 +1,12 @@
 package com.piccmaq.flutter_paypal_native.models;
 
+import android.os.Build;
 import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.paypal.checkout.approve.Approval;
 import com.paypal.checkout.approve.ApprovalData;
-import com.paypal.checkout.error.CorrelationIds;
 import com.paypal.checkout.error.ErrorInfo;
 import com.paypal.checkout.shipping.ShippingChangeActions;
 import com.paypal.checkout.shipping.ShippingChangeData;
@@ -70,15 +70,9 @@ public class PayPalCallBackHelper {
         data.put("error", errorInfo.getError().getMessage());
         data.put("nativeSdkVersion", errorInfo.getNativeSdkVersion());
 
-
-        CorrelationIds correlationIds = errorInfo.getCorrelationIds();
-        data.put("eligibilityDebugID", correlationIds.getEligibilityDebugID());
-        data.put("fundingEligibilityDebugID", correlationIds.getFundingEligibilityDebugID());
-        data.put("updateClientConfigDebugID", correlationIds.getUpdateClientConfigDebugID());
-        data.put("lsatUpgradeDebugID", correlationIds.getLsatUpgradeDebugID());
-        data.put("fetchPayloadDebugID", correlationIds.getFetchPayloadDebugID());
-        data.put("currencyConversionDebugID", correlationIds.getCurrencyConversionDebugID());
-        data.put("finishCheckoutDebugID", correlationIds.getFinishCheckoutDebugID());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            errorInfo.getCorrelationIds().forEach((key, value) -> data.put(key, value));
+        }
 
         flutterPaypalPlugin.invokeMethodOnUiThread("FlutterPaypal#onError", data);
     }

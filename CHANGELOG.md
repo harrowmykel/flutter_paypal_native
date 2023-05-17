@@ -1,3 +1,27 @@
+## 0.0.9
+**Features Updates**
+* Introduced Pay Later PayPal offerings
+* Added the ability for users to add an initial payment method to their PayPal account
+* Updated the UI of the native add-card flow to include complete address input
+* Added the ability to programmatically logout a PayPal user
+
+**Breaking Changes**
+* `Order` was renamed to `OrderRequest`
+* `SettingsConfig.shouldFailEligibility` was renamed to `SettingsConfig.showWebCheckout`
+* `Address` returned in the `OnShippingChange` callback was renamed to `ShippingChangeAddress`
+
+**Non-Breaking Changes**
+* Updated version to 0.112.0 to align with iOS
+* Additional bugfixes
+
+**GitHub Issues Resolved**
+https://github.com/paypal/android-checkout-sdk/issues/99
+https://github.com/paypal/android-checkout-sdk/issues/100
+https://github.com/paypal/android-checkout-sdk/issues/104
+https://github.com/paypal/android-checkout-sdk/issues/226
+https://github.com/paypal/android-checkout-sdk/issues/184
+https://github.com/paypal/android-checkout-sdk/issues/216
+
 ## 0.0.8
 * fixed unable to infer error on ios | thanks to @Rishan99 for fixing and @jpainam for reporting
 

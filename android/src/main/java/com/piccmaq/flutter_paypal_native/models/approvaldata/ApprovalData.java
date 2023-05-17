@@ -3,9 +3,9 @@ package com.piccmaq.flutter_paypal_native.models.approvaldata;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.paypal.pyplcheckout.pojo.Buyer;
-import com.paypal.pyplcheckout.pojo.Cart;
-import com.paypal.pyplcheckout.pojo.VaultData;
+import com.paypal.pyplcheckout.data.model.pojo.Buyer;
+import com.paypal.pyplcheckout.data.model.pojo.Cart;
+import com.paypal.pyplcheckout.data.model.pojo.VaultData;
 
 
 public class ApprovalData {
