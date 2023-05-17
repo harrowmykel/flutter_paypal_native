@@ -31,22 +31,22 @@ public class ShippingOption {
 
 
     //generate an array of ShippingOtion from mother Options List
-    public static List<ShippingOption> fromOptionsList(List<Options> opts) {
+    public static List<ShippingOption> fromPaypalOptionsList(List<Options> opts) {
         List<ShippingOption> options = new ArrayList<>();
         for (Options opt : opts) {
-            options.add(ShippingOption.fromOptions(opt));
+            options.add(ShippingOption.fromPaypalOptions(opt));
         }
         return options;
     }
 
     //generate a ShippingOption from mother Options
     @Nullable
-    public static ShippingOption fromOptions(@Nullable  Options opt) {
+    public static ShippingOption fromPaypalOptions(@Nullable  Options opt) {
         if(opt == null){
             return null;
         }
         ShippingOption option = new ShippingOption();
-        Amount amt = Amount.fromUnitAmount(opt.getAmount());
+        Amount amt = Amount.fromPaypalUnitAmount(opt.getAmount());
         option.setAmount(amt);
         option.setId(opt.getId());
         option.setLabel(opt.getLabel());

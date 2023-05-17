@@ -18,7 +18,7 @@ public class Amount {
     private String value;
 
     @Nullable
-    public static Amount fromUnitAmount(@Nullable UnitAmount amount) {
+    public static Amount fromPaypalUnitAmount(@Nullable UnitAmount amount) {
         if(amount == null){
             return null;
         }

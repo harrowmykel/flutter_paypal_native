@@ -2,8 +2,8 @@ package com.piccmaq.flutter_paypal_native.models;
 
 import com.paypal.checkout.createorder.CurrencyCode;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public class CurrencyCodeHelper {
     Map<String, CurrencyCode> data =new HashMap<String, CurrencyCode>();

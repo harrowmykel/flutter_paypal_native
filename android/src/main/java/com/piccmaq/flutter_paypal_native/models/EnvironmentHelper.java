@@ -2,8 +2,8 @@ package com.piccmaq.flutter_paypal_native.models;
 
 import com.paypal.checkout.config.Environment;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public class EnvironmentHelper {
     Map<String, Environment> data =new HashMap<String, Environment>();

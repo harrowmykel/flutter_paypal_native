@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_paypal_native/models/map_helper.dart';
-import 'package:flutter_paypal_native/models/shipping_address.dart';
+import 'package:flutter_paypal_native/models/shipping_change_address.dart';
+import 'package:flutter_paypal_native/models/shipping_options.dart';
 
 enum ShippingChangeType { addressChange, optionChange }
 
@@ -11,12 +12,12 @@ class FPayPalShippingInfo extends MapHelper {
   //the shipping change type (private)
   String _shipingChangeType = "";
   //the shipping options
-  List<String> shippingOptions = [];
+  List<FPayPalShippingOptions> shippingOptions = [];
   //the new shipping type
   ShippingChangeType? shippingChangeType;
 
   ///the new shipping address
-  FPayPalShippingAddress? shippingAddress;
+  FPayPalShippingChangeAddress? shippingChangeAddress;
 
   FPayPalShippingInfo fromMap(Map<String, dynamic> data) {
     //the data is saved in result key
@@ -31,10 +32,20 @@ class FPayPalShippingInfo extends MapHelper {
     setMap(jsonRes ?? {});
 
     payToken = getString("payToken");
-    Map<String, dynamic>? shippingAddress2 = getMap("shippingAddress");
 
-    shippingAddress = FPayPalShippingAddress().fromMap(shippingAddress2 ?? {});
+    Map<String, dynamic>? shippingChangeAddress2 = getMap(
+      "shippingChangeAddress",
+    );
+    shippingChangeAddress = FPayPalShippingChangeAddress().fromMap(
+      shippingChangeAddress2 ?? {},
+    );
 
+    List<dynamic>? options2 = getList('shippingOptions');
+    if (options2 != null) {
+      for (var opt in options2) {
+        shippingOptions.add(FPayPalShippingOptions().fromMap(opt));
+      }
+    }
     _shipingChangeType = getString("shippingChangeType");
     if (_shipingChangeType == "address_change") {
       shippingChangeType = ShippingChangeType.addressChange;

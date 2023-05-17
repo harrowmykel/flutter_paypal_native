@@ -1,13 +1,11 @@
 package com.piccmaq.flutter_paypal_native.models.shippingdata;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.paypal.checkout.order.Options;
 import com.paypal.checkout.shipping.ShippingChangeData;
 import com.paypal.checkout.shipping.ShippingChangeType;
+
+import java.util.List;
 
 
 public class ShippingChangeDataHelper {
@@ -21,7 +19,7 @@ public class ShippingChangeDataHelper {
     @SerializedName("shippingChangeType")
     @Expose
     private String shippingChangeType;
-    @SerializedName("shippingAddress")
+    @SerializedName("shippingChangeAddress")
     @Expose
     private ShippingChangeAddress shippingAddress;
     @SerializedName("shippingOptions")
@@ -31,23 +29,23 @@ public class ShippingChangeDataHelper {
     @Expose
     private ShippingOption selectedShippingOption = null;
 
-    public static ShippingChangeDataHelper prepareFromShippingChangeData(ShippingChangeData data) {
+    public static ShippingChangeDataHelper preparefromPaypalShippingChangeData(ShippingChangeData data) {
         ShippingChangeDataHelper val = new ShippingChangeDataHelper();
 
         List<ShippingOption> options = ShippingOption
-                .fromOptionsList(data.getShippingOptions());
+                .fromPaypalOptionsList(data.getShippingOptions());
         val.setShippingOptions(options);
 
         val.setPaymentId(data.getPaymentId());
         val.setPayToken(data.getPayToken());
         val.setShippingAddress(
-                ShippingChangeAddress.fromShippingChangeAddress(
+                ShippingChangeAddress.fromPaypalShippingChangeAddress(
                         data.getShippingAddress()
                 )
         );
 
         val.setSelectedShippingOption(
-                ShippingOption.fromOptions(
+                ShippingOption.fromPaypalOptions(
                         data.getSelectedShippingOption()
                 )
         );

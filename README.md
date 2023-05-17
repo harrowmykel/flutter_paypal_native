@@ -268,6 +268,13 @@ if you have trouble using this library, read these:
 
 - underscore is not allowed e.g `com.piccmaq.flutter.paypal.flutter_paypal_example://paypalpay` is not allowed, only `com.piccmaq.flutter.paypal.flutter.paypal.example://paypalpay`
 
+- if you are using an emulator or physical phone for testing in debug mode and you keep getting `java.lang.ClassNotFoundException`, make sure that all applications with the app id are uninstalled. if you have multiple account on your mobile phone, there is the possiblity that flutter installed a new app on your phone -so you have to uninstall that first.
+  
+```
+ Caused by: java.lang.ClassNotFoundException: Didn't find class "com.paypal.pyplcheckout.home.view.activities.PYPLInitiateCheckoutActivity" on path: DexPathList[[zip file "/data/app/com.piccmaq.flutter_paypal_native_example-not-b8OWFxjJhuMcKVK0gA==/base.apk"],nativeLibraryDirectories=[/data/app/com.piccmaq.flutter_paypal_native_example-not-b8OWFxjJhuMcKVK0gA==/lib/arm64, /data/app/com.piccmaq.flutter_paypal_native_example-not-b8OWFxjJhuMcKVK0gA==/base.apk!/lib/arm64-v8a, /system/lib64, /hw_product/lib64, /system/product/lib64]]
+
+```
+
 - if you have a problem with the `android:label` after using the package, add these to the application tag of your `Androidmanifest.xml`
 
 ```xml

@@ -1,20 +1,15 @@
 package com.piccmaq.flutter_paypal_native.models;
 
 import android.os.Build;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.paypal.checkout.approve.Approval;
-import com.paypal.checkout.approve.ApprovalData;
 import com.paypal.checkout.error.ErrorInfo;
 import com.paypal.checkout.shipping.ShippingChangeActions;
 import com.paypal.checkout.shipping.ShippingChangeData;
 import com.piccmaq.flutter_paypal_native.FlutterPaypalNativePlugin;
-import com.piccmaq.flutter_paypal_native.FlutterRegistrarResponder;
 import com.piccmaq.flutter_paypal_native.models.shippingdata.ShippingChangeDataHelper;
-
-import org.json.JSONException;
 
 import java.util.HashMap;
 
@@ -47,7 +42,7 @@ public class PayPalCallBackHelper {
             ShippingChangeActions shippingChangeActions) {
 
         ShippingChangeDataHelper s = ShippingChangeDataHelper
-                .prepareFromShippingChangeData(shippingChangeData);
+                .preparefromPaypalShippingChangeData(shippingChangeData);
         Gson gson = new Gson();
         String json =gson.toJson(s);
 

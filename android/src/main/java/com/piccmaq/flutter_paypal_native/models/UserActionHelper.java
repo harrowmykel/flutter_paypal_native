@@ -2,8 +2,8 @@ package com.piccmaq.flutter_paypal_native.models;
 
 import com.paypal.checkout.createorder.UserAction;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public class UserActionHelper {
     Map<String, UserAction> data =new HashMap<String, UserAction>();

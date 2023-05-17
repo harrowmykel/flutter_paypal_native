@@ -24,21 +24,21 @@ public class ShippingChangeAddress {
     @Expose
     private String countryCode;
 
-    public String getAddressLine1() {
-        return addressLine1;
-    }
-
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
-    }
-
-    public String getAddressLine2() {
-        return addressLine2;
-    }
-
-    public void setAddressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
-    }
+//    public String getAddressLine1() {
+//        return addressLine1;
+//    }
+//
+//    public void setAddressLine1(String addressLine1) {
+//        this.addressLine1 = addressLine1;
+//    }
+//
+//    public String getAddressLine2() {
+//        return addressLine2;
+//    }
+//
+//    public void setAddressLine2(String addressLine2) {
+//        this.addressLine2 = addressLine2;
+//    }
 
     public String getAdminArea1() {
         return adminArea1;
@@ -72,7 +72,7 @@ public class ShippingChangeAddress {
         this.countryCode = countryCode;
     }
 
-    public static ShippingChangeAddress fromShippingChangeAddress(com.paypal.checkout.shipping.ShippingChangeAddress address){
+    public static ShippingChangeAddress fromPaypalShippingChangeAddress(com.paypal.checkout.shipping.ShippingChangeAddress address){
         ShippingChangeAddress val = new ShippingChangeAddress();
 //        val.setAddressLine1(address.getAdd.);
 //        val.setAddressLine2(address.getAddressLine2());

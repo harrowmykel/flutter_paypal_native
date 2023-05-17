@@ -145,17 +145,18 @@ class Addresses {
   String? country;
   bool? isSelected;
 
-  Addresses(
-      {this.isPrimary,
-      this.fullAddress,
-      this.addressId,
-      this.line1,
-      this.line2,
-      this.city,
-      this.state,
-      this.postalCode,
-      this.country,
-      this.isSelected});
+  Addresses({
+    this.isPrimary,
+    this.fullAddress,
+    this.addressId,
+    this.line1,
+    this.line2,
+    this.city,
+    this.state,
+    this.postalCode,
+    this.country,
+    this.isSelected,
+  });
 
   Addresses.fromJson(Map<String, dynamic> json) {
     isPrimary = json['isPrimary'];

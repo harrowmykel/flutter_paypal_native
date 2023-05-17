@@ -9,7 +9,6 @@ import java.util.HashMap;
 
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodChannel;
-import io.flutter.plugin.common.PluginRegistry;
 
 public abstract class FlutterRegistrarResponder {
     Context context;/// The MethodChannel that will the communication between Flutter and native
