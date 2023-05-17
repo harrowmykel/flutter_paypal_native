@@ -1,3 +1,6 @@
+## 0.0.10
+* fixed android issue
+  
 ## 0.0.9
 **Features Updates**
 * Introduced Pay Later PayPal offerings
