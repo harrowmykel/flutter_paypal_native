@@ -61,8 +61,9 @@ class _MyAppState extends State<MyApp> {
           //successfully paid
           //remove all items from queue
           _FlutterPaypalNativePlugin.removeAllPurchaseItems();
-          String orderID = data.orderId ?? "";
-          showResult("Order successful $orderID");
+          showResult(
+            "Order successful ${data.payerId ?? ""} - ${data.orderId ?? ""}",
+          );
         },
         onError: (data) {
           //an error occured

@@ -9,14 +9,15 @@ class FPayPalApprovalData {
   VaultData? vaultData;
   String? billingToken;
 
-  FPayPalApprovalData(
-      {this.payerId,
-      this.orderId,
-      this.paymentId,
-      this.payer,
-      this.cart,
-      this.vaultData,
-      this.billingToken});
+  FPayPalApprovalData({
+    this.payerId,
+    this.orderId,
+    this.paymentId,
+    this.payer,
+    this.cart,
+    this.vaultData,
+    this.billingToken,
+  });
 
   FPayPalApprovalData.fromJson(Map<String, dynamic> json) {
     payerId = json['payerId'];
