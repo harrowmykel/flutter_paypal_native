@@ -75,7 +75,7 @@ class _MyAppState extends State<MyApp> {
         onShippingChange: (data) {
           //the user updated the shipping address
           showResult(
-            "shipping change: ${data.shippingChangeAddress?.addressLine1 ?? ""}",
+            "shipping change: ${data.shippingChangeAddress?.adminArea1 ?? ""}",
           );
         },
       ),
