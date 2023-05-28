@@ -161,7 +161,7 @@ class FlutterPaypalNative {
   void _onPayPalOrderError(Map<String, dynamic> data) {
     FPayPalErrorInfo error = FPayPalErrorInfo();
     try {
-      error = error.fromMap(data);
+      error = error.fromJson(data);
     } catch (e) {
       if (isDebugMode) debugPrint(e.toString());
     }
@@ -172,9 +172,9 @@ class FlutterPaypalNative {
   }
 
   void _onPayPalOrderShippingChange(Map<String, dynamic> data) {
-    FPayPalShippingInfo shipping = FPayPalShippingInfo();
+    FPayPalShippingChangeInfo shipping = FPayPalShippingChangeInfo();
     try {
-      shipping = FPayPalShippingInfo().fromMap(data);
+      shipping = FPayPalShippingChangeInfo().fromJson(data);
     } catch (e) {
       if (isDebugMode) debugPrint(e.toString());
     }

@@ -6,7 +6,7 @@ class FPayPalErrorInfo extends MapHelper {
   String error = "";
   String nativeSdkVersion = "";
 
-  FPayPalErrorInfo fromMap(Map<String, dynamic> data) {
+  FPayPalErrorInfo fromJson(Map<String, dynamic> data) {
     setMap(data);
 
     reason = getString("reason");

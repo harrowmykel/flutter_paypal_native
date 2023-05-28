@@ -6,7 +6,7 @@ class FPayPalOrderCallback {
   void Function(FPayPalApprovalData success) onSuccess;
   void Function(FPayPalErrorInfo error)? onError;
   void Function()? onCancel;
-  void Function(FPayPalShippingInfo shipping)? onShippingChange;
+  void Function(FPayPalShippingChangeInfo shipping)? onShippingChange;
 
   String onSuccessMessage;
   String onErrorMessage;

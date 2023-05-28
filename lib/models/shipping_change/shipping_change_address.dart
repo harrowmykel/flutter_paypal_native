@@ -1,6 +1,6 @@
 import 'package:flutter_paypal_native/models/map_helper.dart';
 
-class FPayPalShippingChangeAddress extends MapHelper {
+class ShippingChangeAddress extends MapHelper {
   String addressLine1 = "";
   String addressLine2 = "";
   String adminArea1 = "";
@@ -8,7 +8,7 @@ class FPayPalShippingChangeAddress extends MapHelper {
   String postalCode = "";
   String countryCode = "";
 
-  FPayPalShippingChangeAddress fromMap(Map<String, dynamic> data) {
+  ShippingChangeAddress fromJson(Map<String, dynamic> data) {
     setMap(data);
     adminArea1 = getString("adminArea1");
     adminArea2 = getString("adminArea2");

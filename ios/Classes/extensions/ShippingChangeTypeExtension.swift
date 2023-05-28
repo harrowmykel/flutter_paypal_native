@@ -1,7 +1,7 @@
 import PayPalCheckout
 
-extension ShippingChangeType : CustomStringConvertible {
-    public var humanText: String {
+extension ShippingChangeType {
+    public var description: String {
         switch self {
         case .shippingAddress:
             return "ADDRESS_CHANGE"
