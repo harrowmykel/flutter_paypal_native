@@ -10,8 +10,8 @@ class PayPalCallBackHelper {
 
     public func onApprove(_ approval: Approval) throws {
         approval.actions.capture { (response, error) in
-             print("")
-            // print("Order successfully captured: \(response?.data)")
+            //print("")
+            print("Order successfully captured: \(response?.data)")
         }
         let data = approval.data
         var dataMap: [String: Any?] = data.toDictionary()
