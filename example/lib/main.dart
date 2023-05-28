@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
       //your app id !!! No Underscore!!! see readme.md for help
       returnUrl: "com.piccmaq.flutter.paypal.native.example://paypalpay",
       //client id from developer dashboard
-      clientID: "AZsCX.....",
+      clientID: "AZsCX8....",
       //sandbox, staging, live etc
       payPalEnvironment: FPayPalEnvironment.sandbox,
       //what currency do you plan to use? default is US dollars
@@ -61,8 +61,11 @@ class _MyAppState extends State<MyApp> {
           //successfully paid
           //remove all items from queue
           _FlutterPaypalNativePlugin.removeAllPurchaseItems();
+          String visitor = data.cart?.shippingAddress?.firstName ?? 'Visitor';
+          String address =
+              data.cart?.shippingAddress?.line1 ?? 'Unknown Address';
           showResult(
-            "Order successful ${data.payerId ?? ""} - ${data.orderId ?? ""}",
+            "Order successful ${data.payerId ?? ""} - ${data.orderId ?? ""} - $visitor -$address",
           );
         },
         onError: (data) {
