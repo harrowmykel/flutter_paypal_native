@@ -1,6 +1,6 @@
-import 'package:flutter_paypal_native/models/approval_data.dart';
-import 'package:flutter_paypal_native/models/error_info.dart';
-import 'package:flutter_paypal_native/models/shipping_info.dart';
+import 'package:flutter_paypal_native/models/approval/approval_data.dart';
+import 'package:flutter_paypal_native/models/custom/error_info.dart';
+import 'package:flutter_paypal_native/models/shipping_change/shipping_info.dart';
 
 class FPayPalOrderCallback {
   void Function(FPayPalApprovalData success) onSuccess;

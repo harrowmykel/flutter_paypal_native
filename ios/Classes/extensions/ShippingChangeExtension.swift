@@ -3,15 +3,12 @@ import PayPalCheckout
 extension ShippingChange {
     func toDictionary() -> [String: Any?] {
         let map: [String: Any?] = [   
-            "type": type.description,
-            "selectedShippingAddress": selectedShippingAddress.toDictionary(),
-            "shippingMethods": shippingMethods.map({ (shippingMethod) in
+            "shippingChangeType": type.humanText,
+            "shippingAddress": selectedShippingAddress.toDictionary(),
+            "shippingOptions": shippingMethods.map({ (shippingMethod) in
                 shippingMethod.toDictionary()
             }),
-            "selectedShippingMethod" : selectedShippingMethod?.toDictionary(),
-            "payToken": payToken,
-            "paymentID": paymentID,
-            "billingToken": billingToken,
+            "selectedShippingOption" : selectedShippingMethod?.toDictionary(),
         ]
         return map
     }

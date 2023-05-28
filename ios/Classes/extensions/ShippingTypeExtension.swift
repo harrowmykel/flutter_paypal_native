@@ -4,11 +4,11 @@ extension  ShippingType : CustomStringConvertible {
     public var description: String {
         switch self {
         case .shipping:
-            return "shipping"
+            return "SHIPPING"
         case .pickup:
-            return "pickup"
+            return "PICKUP"
         case .none:
-            return "none"
+            return "NONE"
         default:
             return "unknown"
         }

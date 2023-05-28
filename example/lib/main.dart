@@ -2,12 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal_native/flutter_paypal_native.dart';
+import 'package:flutter_paypal_native/models/custom/currency_code.dart';
+import 'package:flutter_paypal_native/models/custom/environment.dart';
 import 'package:flutter_paypal_native/str_helper.dart';
-import 'package:flutter_paypal_native/models/environment.dart';
-import 'package:flutter_paypal_native/models/currency_code.dart';
-import 'package:flutter_paypal_native/models/purchase_unit.dart';
-import 'package:flutter_paypal_native/models/user_action.dart';
-import 'package:flutter_paypal_native/models/order_callback.dart';
+import 'package:flutter_paypal_native/models/custom/purchase_unit.dart';
+import 'package:flutter_paypal_native/models/custom/user_action.dart';
+import 'package:flutter_paypal_native/models/custom/order_callback.dart';
 
 void main() async {
   runApp(const MyApp());

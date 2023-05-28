@@ -1,17 +1,17 @@
-package com.piccmaq.flutter_paypal_native.models.shippingdata;
 
-import androidx.annotation.Nullable;
+package com.piccmaq.flutter_paypal_native.models.shippingdata;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.paypal.checkout.createorder.ShippingType;
 import com.paypal.checkout.order.Options;
+import com.piccmaq.flutter_paypal_native.models.approvaldata.PPAmount;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ShippingOption {
+public class PPShippingOption {
 
     @SerializedName("id")
     @Expose
@@ -27,38 +27,33 @@ public class ShippingOption {
     private String type;
     @SerializedName("amount")
     @Expose
-    private Amount amount;
+    private PSUnitAmount amount;
 
 
-    //generate an array of ShippingOtion from mother Options List
-    public static List<ShippingOption> fromPaypalOptionsList(List<Options> opts) {
-        List<ShippingOption> options = new ArrayList<>();
-        for (Options opt : opts) {
-            options.add(ShippingOption.fromPaypalOptions(opt));
+    public static ArrayList<PPShippingOption> fromPayPalObjectList(List<Options> items) {
+        ArrayList<PPShippingOption> myList = new ArrayList<>();
+        for (Options i : items){
+            myList.add(PPShippingOption.fromPayPalObject(i));
         }
-        return options;
+        return myList;
     }
-
     //generate a ShippingOption from mother Options
-    @Nullable
-    public static ShippingOption fromPaypalOptions(@Nullable  Options opt) {
-        if(opt == null){
-            return null;
+    public static PPShippingOption fromPayPalObject(Options opt) {
+        PPShippingOption app = new PPShippingOption();
+        app.setId( opt.getId());
+        app.setLabel( opt.getLabel());
+        app.setSelected( opt.getSelected());
+        if (opt.getAmount() != null) {
+            app.setAmount(PSUnitAmount.fromPayPalObject(opt.getAmount()));
         }
-        ShippingOption option = new ShippingOption();
-        Amount amt = Amount.fromPaypalUnitAmount(opt.getAmount());
-        option.setAmount(amt);
-        option.setId(opt.getId());
-        option.setLabel(opt.getLabel());
-        option.setSelected(opt.getSelected());
 
         ShippingType type = opt.getType();
-        if(type == ShippingType.SHIPPING){
-            option.setType("shipping");
-        }else  if(type == ShippingType.PICKUP){
-            option.setType("pickup");
+        if(type==ShippingType.SHIPPING){
+            app.setType("SHIPPING");
+        }else if(type==ShippingType.PICKUP){
+            app.setType("PICKUP");
         }
-        return option;
+        return app;
     }
 
     public String getId() {
@@ -93,11 +88,11 @@ public class ShippingOption {
         this.type = type;
     }
 
-    public Amount getAmount() {
+    public PSUnitAmount getAmount() {
         return amount;
     }
 
-    public void setAmount(Amount amount) {
+    public void setAmount(PSUnitAmount amount) {
         this.amount = amount;
     }
 

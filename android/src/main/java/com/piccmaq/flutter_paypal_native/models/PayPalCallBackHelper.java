@@ -9,7 +9,8 @@ import com.paypal.checkout.error.ErrorInfo;
 import com.paypal.checkout.shipping.ShippingChangeActions;
 import com.paypal.checkout.shipping.ShippingChangeData;
 import com.piccmaq.flutter_paypal_native.FlutterPaypalNativePlugin;
-import com.piccmaq.flutter_paypal_native.models.shippingdata.ShippingChangeDataHelper;
+import com.piccmaq.flutter_paypal_native.models.approvaldata.PPApprovalData;
+import com.piccmaq.flutter_paypal_native.models.shippingdata.PSShippingChangeDataHelper;
 
 import java.util.HashMap;
 
@@ -25,7 +26,7 @@ public class PayPalCallBackHelper {
         HashMap<String, Object> data = new HashMap<>();
 
         Gson gson = (new GsonBuilder()).create();
-        String json = gson.toJson(approval.getData());
+        String json = gson.toJson(PPApprovalData.fromPayPalObject(approval));
         data.put("approvalData", json);
 
         approval.getOrderActions().capture((onComplete) -> {
@@ -41,8 +42,8 @@ public class PayPalCallBackHelper {
             ShippingChangeData shippingChangeData,
             ShippingChangeActions shippingChangeActions) {
 
-        ShippingChangeDataHelper s = ShippingChangeDataHelper
-                .preparefromPaypalShippingChangeData(shippingChangeData);
+        PSShippingChangeDataHelper s = PSShippingChangeDataHelper
+                .fromPayPalObject(shippingChangeData);
         Gson gson = new Gson();
         String json =gson.toJson(s);
 

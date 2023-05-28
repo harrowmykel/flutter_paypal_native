@@ -2,15 +2,10 @@ package com.piccmaq.flutter_paypal_native.models.shippingdata;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.paypal.checkout.shipping.ShippingChangeAddress;
 
-public class ShippingChangeAddress {
+public class PSShippingChangeAddress {
 
-    @SerializedName("addressLine1")
-    @Expose
-    private String addressLine1;
-    @SerializedName("addressLine2")
-    @Expose
-    private String addressLine2;
     @SerializedName("adminArea1")
     @Expose
     private String adminArea1;
@@ -23,22 +18,6 @@ public class ShippingChangeAddress {
     @SerializedName("countryCode")
     @Expose
     private String countryCode;
-
-//    public String getAddressLine1() {
-//        return addressLine1;
-//    }
-//
-//    public void setAddressLine1(String addressLine1) {
-//        this.addressLine1 = addressLine1;
-//    }
-//
-//    public String getAddressLine2() {
-//        return addressLine2;
-//    }
-//
-//    public void setAddressLine2(String addressLine2) {
-//        this.addressLine2 = addressLine2;
-//    }
 
     public String getAdminArea1() {
         return adminArea1;
@@ -72,10 +51,8 @@ public class ShippingChangeAddress {
         this.countryCode = countryCode;
     }
 
-    public static ShippingChangeAddress fromPaypalShippingChangeAddress(com.paypal.checkout.shipping.ShippingChangeAddress address){
-        ShippingChangeAddress val = new ShippingChangeAddress();
-//        val.setAddressLine1(address.getAdd.);
-//        val.setAddressLine2(address.getAddressLine2());
+    public static PSShippingChangeAddress fromPayPalObject(ShippingChangeAddress address){
+        PSShippingChangeAddress val = new PSShippingChangeAddress();
         val.setAdminArea1(address.getAdminArea1());
         val.setAdminArea2(address.getAdminArea2());
         val.setCountryCode(address.getCountryCode());
