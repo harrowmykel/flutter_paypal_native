@@ -92,6 +92,9 @@ public class PPItem {
     }
     public static ArrayList<PPItem> fromPayPalObjectList(List<Item> items) {
         ArrayList<PPItem> myList = new ArrayList<>();
+        if(items==null){
+            return myList;
+        }
         for (Item i : items){
             myList.add(PPItem.fromPayPalObject(i));
         }

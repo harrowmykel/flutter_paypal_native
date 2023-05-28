@@ -32,6 +32,9 @@ public class PPShippingOption {
 
     public static ArrayList<PPShippingOption> fromPayPalObjectList(List<Options> items) {
         ArrayList<PPShippingOption> myList = new ArrayList<>();
+        if(items==null){
+            return myList;
+        }
         for (Options i : items){
             myList.add(PPShippingOption.fromPayPalObject(i));
         }

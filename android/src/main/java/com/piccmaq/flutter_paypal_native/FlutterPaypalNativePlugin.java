@@ -1,6 +1,7 @@
 package com.piccmaq.flutter_paypal_native;
 
 import android.app.Application;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
