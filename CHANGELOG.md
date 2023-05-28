@@ -1,3 +1,9 @@
+## 1.0.0
+* Lots of breaking changes
+* Unified ios and android codebase
+* removed paypal internal objects
+* fixed missing shipping address data
+
 ## 0.0.10
 * fixed android issue
   
