@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_paypal_native/models/currency_code.dart';
-import 'package:flutter_paypal_native/str_helper.dart';
 
 class FPayPalPurchaseUnit {
   FPayPalCurrencyCode currencyCode;

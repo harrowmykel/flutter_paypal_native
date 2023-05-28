@@ -99,6 +99,7 @@ public class SwiftFlutterPaypalNativePlugin: NSObject, FlutterPlugin {
                     let order = OrderRequest(
                             intent: .capture,
                             purchaseUnits: purchaseUnits
+                            
                     )
                     createOrderAction.create(order: order)
                 }

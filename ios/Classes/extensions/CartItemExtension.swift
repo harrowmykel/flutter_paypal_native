@@ -1,8 +1,14 @@
-//
-//  CartItemExtension.swift
-//  flutter_paypal_native
-//
-//  Created by Micheal Aro on 27.05.23.
-//
+import PayPalCheckout
 
-import Foundation
+extension CartItem {
+    func toDictionary() -> [String: Any?] {
+        var cartItemMap: [String: Any?] = [
+            "name": name,
+            "description": itemDescription,
+            "quantity": quantity,
+        ]
+        cartItemMap["total"] = total.toDictionary()
+        cartItemMap["unitPrice"] = unitPrice.toDictionary()
+        return cartItemMap
+    }
+}
