@@ -9,11 +9,6 @@ extension Cart {
                 "shippingAddress": shippingAddress?.toDictionary(),
                 "billingAddress": billingAddress?.toDictionary(),
                 "totalAllowedOverCaptureAmount": totalAllowedOverCaptureAmount.toDictionary() as [String: Any?],
-              
-                //                "billingToken": billingToken,
-                //                "billingType": billingType?.rawValue,
-                //                "cancelUrl": cancelURL?.absoluteString,
-                //                "returnUrl": returnURL?.absoluteString,
         ]
         map["items"] = items.map({ (item) -> [String: Any?] in
             return item.toDictionary()
