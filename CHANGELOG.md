@@ -1,3 +1,6 @@
+## 1.0.1
+* fixed ios error in shipping change
+
 ## 1.0.0
 * Lots of breaking changes
 * Unified ios and android codebase
