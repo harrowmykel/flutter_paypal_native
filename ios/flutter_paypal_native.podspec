@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_paypal_native'
-  s.version          = '0.0.7'
+  s.version          = '1.0.1'
   s.summary          = 'Flutter SDK Lib for Paypal.'
   s.description      = <<-DESC
 Flutter SDK Lib for Paypal.
