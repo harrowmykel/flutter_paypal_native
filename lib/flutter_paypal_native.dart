@@ -98,6 +98,11 @@ class FlutterPaypalNative {
     purchaseUnits.add(pUnit);
   }
 
+  ///paypal will throw an exception for too many items
+  bool get canAddMorePurchaseUnit {
+    return purchaseUnits.length < 5;
+  }
+
   ///starts an order of payment
   ///@throws Exception if init()
   ///was not called before this function

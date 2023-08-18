@@ -21,7 +21,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _FlutterPaypalNativePlugin = FlutterPaypalNative.instance;
+  final _flutterPaypalNativePlugin = FlutterPaypalNative.instance;
   // log queue
   List<String> logQueue = [];
 
@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
     FlutterPaypalNative.isDebugMode = true;
 
     //initiate payPal plugin
-    await _FlutterPaypalNativePlugin.init(
+    await _flutterPaypalNativePlugin.init(
       //your app id !!! No Underscore!!! see readme.md for help
       returnUrl: "com.piccmaq.flutter.paypal.native.example://paypalpay",
       //client id from developer dashboard
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
     );
 
     //call backs for payment
-    _FlutterPaypalNativePlugin.setPayPalOrderCallback(
+    _flutterPaypalNativePlugin.setPayPalOrderCallback(
       callback: FPayPalOrderCallback(
         onCancel: () {
           //user canceled the payment
@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
         onSuccess: (data) {
           //successfully paid
           //remove all items from queue
-          _FlutterPaypalNativePlugin.removeAllPurchaseItems();
+          _flutterPaypalNativePlugin.removeAllPurchaseItems();
           String visitor = data.cart?.shippingAddress?.firstName ?? 'Visitor';
           String address =
               data.cart?.shippingAddress?.line1 ?? 'Unknown Address';
@@ -96,9 +96,9 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton(
                 child: const Text("Do payment"),
                 onPressed: () {
-                  //add 4 items to cart
-                  for (var i = 0; i < 4; i++) {
-                    _FlutterPaypalNativePlugin.addPurchaseUnit(
+                  //add 1 item to cart. Max is 4!
+                  if (_flutterPaypalNativePlugin.canAddMorePurchaseUnit) {
+                    _flutterPaypalNativePlugin.addPurchaseUnit(
                       FPayPalPurchaseUnit(
                         // random prices
                         amount: Random().nextDouble() * 100,
@@ -108,9 +108,8 @@ class _MyAppState extends State<MyApp> {
                       ),
                     );
                   }
-
                   // initPayPal();
-                  _FlutterPaypalNativePlugin.makeOrder(
+                  _flutterPaypalNativePlugin.makeOrder(
                     action: FPayPalUserAction.payNow,
                   );
                 },

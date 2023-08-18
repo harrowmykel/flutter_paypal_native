@@ -1,3 +1,10 @@
+## 1.0.2
+* added null check for Buyer.getName()
+* updated readme to indicate max purchase unit count
+* added `canAddMorePurchaseUnit` as helper function
+* changed android sdk version from 0.122.0 to 0.122.2
+* updated example
+
 ## 1.0.1
 * fixed ios error in shipping change
 

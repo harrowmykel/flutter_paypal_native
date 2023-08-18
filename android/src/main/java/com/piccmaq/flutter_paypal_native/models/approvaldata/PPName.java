@@ -43,6 +43,9 @@ public class PPName {
     }
     public static PPName fromPayPalObject(Buyer buyer){
         PPName n=new PPName();
+        if(buyer==null){
+            return n;
+        }
         Name nm=buyer.getName();
         if(nm==null){
             return n;

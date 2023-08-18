@@ -222,8 +222,8 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton(
                 child: const Text("Do payment"),
                 onPressed: () {
-                  //add 4 items to cart
-                  for (var i = 0; i < 4; i++) {
+                  //add item to cart. Max is between 4 to 8
+                  if (_flutterPaypalNativePlugin.canAddMorePurchaseUnit) {
                     _flutterPaypalPlugin.addPurchaseUnit(
                       FPayPalPurchaseUnit(
                         // random prices
@@ -233,12 +233,11 @@ class _MyAppState extends State<MyApp> {
                         referenceId: FPayPalStrHelper.getRandomString(16),
                       ),
                     );
+                    // initPayPal();
+                    _flutterPaypalPlugin.makeOrder(
+                      action: FPayPalUserAction.payNow,
+                    );
                   }
-
-                  // initPayPal();
-                  _flutterPaypalPlugin.makeOrder(
-                    action: FPayPalUserAction.payNow,
-                  );
                 },
               ),
             ],
@@ -258,6 +257,26 @@ class _MyAppState extends State<MyApp> {
 
 ```
 
+
+### Notice
+
+- Max Number of items you can add to purchase units is between 4-6.
+Or else Paypal will throw an Exception!
+
+```dart
+
+  if (_flutterPaypalNativePlugin.canAddMorePurchaseUnit) {
+    _flutterPaypalPlugin.addPurchaseUnit(
+      FPayPalPurchaseUnit(
+        // random prices
+        amount: Random().nextDouble() * 100,
+
+        ///please use your own algorithm for referenceId. Maybe ProductID?
+        referenceId: FPayPalStrHelper.getRandomString(16),
+      ),
+    );
+  }
+```
 
 
 
