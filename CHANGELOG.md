@@ -1,3 +1,8 @@
+## 2.0.0
+* changed android sdk version from 0.122.2 to 1.1.0
+* updated example
+* updated readme
+
 ## 1.0.2
 * added null check for Buyer.getName()
 * updated readme to indicate max purchase unit count
