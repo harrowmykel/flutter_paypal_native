@@ -27,7 +27,7 @@ public class PPApprovalData {
 
     public static PPApprovalData fromPayPalObject(com.paypal.checkout.approve.Approval approval ) {
         PPApprovalData app = new PPApprovalData();
-        com.paypal.checkout.approve.ApprovalData approvalData =approval.getData();
+        com.paypal.checkout.approve.ApprovalData approvalData = approval.getData();
         app.setOrderId(approvalData.getOrderId());
         app.setPayerId(approvalData.getPayerId());
         app.setIntent("PURCHASE");

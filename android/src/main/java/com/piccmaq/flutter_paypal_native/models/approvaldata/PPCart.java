@@ -1,6 +1,10 @@
 package com.piccmaq.flutter_paypal_native.models.approvaldata;
 
 
+import android.util.Log;
+
+import androidx.annotation.Nullable;
+
 import java.util.List;
 
 import com.google.gson.annotations.Expose;
@@ -99,8 +103,12 @@ public class PPCart {
     public void setTotalAllowedOverCaptureAmount(PPAmount totalAllowedOverCaptureAmount) {
         this.totalAllowedOverCaptureAmount = totalAllowedOverCaptureAmount;
     }
-    public static PPCart fromPayPalObject(Cart cart) {
+    public static PPCart fromPayPalObject(@Nullable Cart cart) {
         PPCart app = new PPCart();
+        if(cart ==null){
+            Log.d("is null", "cart");
+            return app;
+        }
         app.setCartId(cart.getCartId());
         app.setIntent(cart.getIntent());
         if (cart.getTotal() != null) {
