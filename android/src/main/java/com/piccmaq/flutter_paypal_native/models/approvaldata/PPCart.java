@@ -106,7 +106,6 @@ public class PPCart {
     public static PPCart fromPayPalObject(@Nullable Cart cart) {
         PPCart app = new PPCart();
         if(cart ==null){
-            Log.d("is null", "cart");
             return app;
         }
         app.setCartId(cart.getCartId());
