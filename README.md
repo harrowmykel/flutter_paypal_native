@@ -11,7 +11,13 @@ Now supports Android and iOS 🌟⚡. :)
 | ----------- | ------- | --- |
 | **Support** | SDK 21+ | all |
 
+[Checkout IOS Doc](https://developer.paypal.com/limited-release/paypal-mobile-checkout/initialize-sdk/)
 
+[Checkout Android Doc](https://developer.paypal.com/limited-release/paypal-mobile-checkout/initialize-sdk/)
+
+[Github Android SDK](https://github.com/paypal/android-checkout-sdk)
+
+[Github IOS](https://github.com/paypal/paypalcheckout-ios)
 
 <img src="https://github.com/harrowmykel/flutter_paypal_native/raw/main/resources/media/flutter_paypal.gif?raw=true" alt="Screenshot" height="400" />
 
