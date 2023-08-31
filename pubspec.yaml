@@ -1,11 +1,11 @@
 name: flutter_paypal_native
 description: A native implementation for Paypal with flutter.
-version: 2.0.0
+version: 2.0.1
 homepage: https://github.com/harrowmykel/flutter_paypal_native
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
-  flutter: ">=2.5.0"
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
