@@ -1,10 +1,7 @@
 package com.piccmaq.flutter_paypal_native.models.approvaldata;
 
-
 import androidx.annotation.Nullable;
-
 import java.util.List;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.paypal.pyplcheckout.data.model.pojo.Cart;
