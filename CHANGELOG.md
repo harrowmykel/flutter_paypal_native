@@ -1,3 +1,7 @@
+## 2.0.1
+* changed ios sdk version from 0.109.0 to 1.1.0
+* updated minium ios version to 13.0 (required by paypal)
+
 ## 2.0.0
 * changed android sdk version from 0.122.2 to 1.1.0
 * updated example
