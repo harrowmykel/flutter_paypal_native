@@ -21,10 +21,9 @@ void main() {
 
   test('getPlatformVersion', () async {
     FlutterPaypalNative flutterPaypalNativePlugin = FlutterPaypalNative();
-    MockFlutterPaypalNativePlatform fakePlatform =
-        MockFlutterPaypalNativePlatform();
+    // MockFlutterPaypalNativePlatform fakePlatform =
+    //     MockFlutterPaypalNativePlatform();
     // FlutterPaypalNativePlatform.instance = fakePlatform;
-
     expect(await flutterPaypalNativePlugin.getPlatformVersion(), '42');
   });
 }
