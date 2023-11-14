@@ -1,3 +1,6 @@
+## 2.0.2
+* added null check for buyer and Buyer.getEmail()
+
 ## 2.0.1
 * changed ios sdk version from 0.109.0 to 1.1.0
 * updated minium ios version to 13.0 (required by paypal)

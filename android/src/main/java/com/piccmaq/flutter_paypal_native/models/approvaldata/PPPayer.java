@@ -54,6 +54,9 @@ public class PPPayer {
 
     public static PPPayer fromPayPalObject(Buyer buyer) {
         PPPayer app = new PPPayer();
+        if(buyer==null){
+            return app;
+        }
         app.setName(PPName.fromPayPalObject(buyer));
         app.setEmail(PPEmail.fromPaypalObject(buyer));
         app.setUserId(buyer.getUserId());
