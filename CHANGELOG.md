@@ -1,3 +1,7 @@
+## 2.1.0
+* updated android package to 1.2.0
+* note: android package naming convention may have changed
+
 ## 2.0.2
 * added null check for buyer and Buyer.getEmail()
 
